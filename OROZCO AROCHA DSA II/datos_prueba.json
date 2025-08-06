@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "timestamp": "2024-01-15T10:30:00",
+    "descripcion": "Datos de prueba para el simulador de red LAN"
+  },
+  "dispositivos": {
+    "Router1": {
+      "nombre": "Router1",
+      "tipo": "router",
+      "en_linea": true,
+      "interfaces": {
+        "g0/0": {
+          "nombre": "g0/0",
+          "direccion_ip": "192.168.1.1",
+          "activa": true
+        },
+        "g0/1": {
+          "nombre": "g0/1",
+          "direccion_ip": "10.0.0.1",
+          "activa": true
+        }
+      }
+    },
+    "Switch1": {
+      "nombre": "Switch1",
+      "tipo": "switch",
+      "en_linea": true,
+      "interfaces": {
+        "g0/0": {
+          "nombre": "g0/0",
+          "direccion_ip": null,
+          "activa": true
+        },
+        "g0/1": {
+          "nombre": "g0/1",
+          "direccion_ip": null,
+          "activa": true
+        },
+        "g0/2": {
+          "nombre": "g0/2",
+          "direccion_ip": null,
+          "activa": true
+        },
+        "g0/3": {
+          "nombre": "g0/3",
+          "direccion_ip": null,
+          "activa": true
+        }
+      }
+    },
+    "PC1": {
+      "nombre": "PC1",
+      "tipo": "pc",
+      "en_linea": true,
+      "interfaces": {
+        "eth0": {
+          "nombre": "eth0",
+          "direccion_ip": "192.168.1.10",
+          "activa": true
+        }
+      }
+    },
+    "PC2": {
+      "nombre": "PC2",
+      "tipo": "pc",
+      "en_linea": true,
+      "interfaces": {
+        "eth0": {
+          "nombre": "eth0",
+          "direccion_ip": "10.0.0.10",
+          "activa": true
+        }
+      }
+    },
+    "Firewall1": {
+      "nombre": "Firewall1",
+      "tipo": "firewall",
+      "en_linea": true,
+      "interfaces": {
+        "inside": {
+          "nombre": "inside",
+          "direccion_ip": "192.168.1.254",
+          "activa": true
+        },
+        "outside": {
+          "nombre": "outside",
+          "direccion_ip": "203.0.113.1",
+          "activa": true
+        }
+      }
+    }
+  },
+  "conexiones": [
+    "Router1:g0/0 <-> Switch1:g0/0",
+    "Switch1:g0/1 <-> PC1:eth0",
+    "Router1:g0/1 <-> PC2:eth0",
+    "Switch1:g0/2 <-> Firewall1:inside"
+  ]
+}
